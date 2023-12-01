@@ -35,3 +35,4 @@ build/
 ### Confidential ###
 /src/main/resources/application.properties
 /src/main/resources/liquibase.properties
+docker-compose.yml
