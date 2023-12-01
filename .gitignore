@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Confidential ###
+/src/main/resources/application.properties
+/src/main/resources/liquibase.properties
