@@ -7,6 +7,7 @@ CREATE TABLE specialization
     name varchar(200) NOT NULL
 );
 
+-- changeSet Danil:2
 CREATE TABLE warehouse
 (
     id                    integer generated always AS IDENTITY PRIMARY KEY,
@@ -14,6 +15,7 @@ CREATE TABLE warehouse
     details_information   varchar(500) NOT NULL
 );
 
+-- changeSet Danil:3
 CREATE TABLE employee
 (
     id           integer generated always AS IDENTITY PRIMARY KEY,
@@ -26,6 +28,7 @@ CREATE TABLE employee
     spec_id      integer REFERENCES specialization
 );
 
+-- changeSet Danil:4
 CREATE TABLE item
 (
     id           integer generated always AS IDENTITY PRIMARY KEY,
@@ -34,6 +37,7 @@ CREATE TABLE item
     warehouse_id integer REFERENCES warehouse NOT NULL
 );
 
+-- changeSet Danil:5
 CREATE TABLE piece
 (
     id           integer generated always AS IDENTITY PRIMARY KEY,
@@ -42,6 +46,7 @@ CREATE TABLE piece
     warehouse_id integer REFERENCES warehouse NOT NULL
 );
 
+-- changeSet Danil:6
 CREATE TABLE detail
 (
     id           integer generated always AS IDENTITY PRIMARY KEY,
@@ -50,6 +55,7 @@ CREATE TABLE detail
     warehouse_id integer REFERENCES warehouse NOT NULL
 );
 
+-- changeSet Danil:7
 CREATE TABLE customer
 (
     id           integer generated always AS IDENTITY PRIMARY KEY,
@@ -59,6 +65,7 @@ CREATE TABLE customer
     phone_number varchar(20)
 );
 
+-- changeSet Danil:8
 CREATE TABLE application
 (
     id            integer generated always AS IDENTITY PRIMARY KEY,
@@ -67,6 +74,7 @@ CREATE TABLE application
     creation_date date                        NOT NULL
 );
 
+-- changeSet Danil:9
 CREATE TABLE product
 (
     id               integer generated always AS IDENTITY PRIMARY KEY,
@@ -74,6 +82,7 @@ CREATE TABLE product
     item_information varchar(500)
 );
 
+-- changeSet Danil:10
 CREATE TABLE application_composition
 (
     id             integer generated always AS IDENTITY PRIMARY KEY,
