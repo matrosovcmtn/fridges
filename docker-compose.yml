@@ -4,10 +4,14 @@ services:
 
   postgres:
     image: postgres
+    deploy:
+      mode: global
     restart: always
     environment:
       POSTGRES_DB: fridge
       POSTGRES_PASSWORD: password
+    volumes:
+      - "T:/studying/3kurs/5sem/RBD/project/docker-db-volume:/var/lib/postgresql/data"
 
   backend:
     build: .
