@@ -8,13 +8,9 @@ import lombok.Data;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder(builderClassName = "Builder")
 @Data
-public class EmployeeModel {
+public class PieceModel {
     private Integer id;
-    private String firstName;
-    private String secondName;
-    private String middleName;
-    private String phoneNumber;
-    private String fullName;
-    private int warehouseId;
-    private int specId;
+    private String name;
+    private Integer quantity;
+    private Integer warehouseId;
 }

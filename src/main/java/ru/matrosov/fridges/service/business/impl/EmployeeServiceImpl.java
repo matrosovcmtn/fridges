@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.matrosov.fridges.model.EmployeeModel;
-import ru.matrosov.fridges.repository.jdbc.EmployeeRepositoryJdbc;
+import ru.matrosov.fridges.repository.EmployeeRepository;
 import ru.matrosov.fridges.service.business.EmployeeService;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    private final EmployeeRepositoryJdbc repository;
+    private final EmployeeRepository repository;
 
     @Transactional
     @Override
