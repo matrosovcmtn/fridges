@@ -2,7 +2,7 @@ package ru.matrosov.fridges.service.mapper;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
-import ru.matrosov.fridges.model.WarehouseModel;
+import ru.matrosov.fridges.model.dictionary.WarehouseModel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

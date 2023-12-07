@@ -1,4 +1,4 @@
-package ru.matrosov.fridges.model;
+package ru.matrosov.fridges.model.dictionary;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -8,8 +8,9 @@ import lombok.Data;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder(builderClassName = "Builder")
 @Data
-public class WarehouseModel {
+public class PieceModel {
     private Integer id;
-    private String warehouseInformation;
-    private String detailsInformation;
+    private String name;
+    private Integer quantity;
+    private Integer warehouseId;
 }
