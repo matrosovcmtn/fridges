@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.matrosov.fridges.model.EmployeeModel;
+import ru.matrosov.fridges.model.dictionary.EmployeeModel;
 import ru.matrosov.fridges.service.business.EmployeeService;
 
 import java.util.List;

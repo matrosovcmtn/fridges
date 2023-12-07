@@ -1,14 +1,18 @@
-package ru.matrosov.fridges.model;
+package ru.matrosov.fridges.model.dictionary;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder(builderClassName = "Builder")
 @Data
-public class SpecializationModel {
+public class ApplicationCompositionModel {
     private Integer id;
-    private String name;
+    private Integer quantity;
+    private Integer applicationId;
+    private LocalDate creationDate;
 }

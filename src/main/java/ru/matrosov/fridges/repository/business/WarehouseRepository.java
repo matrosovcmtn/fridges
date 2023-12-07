@@ -1,4 +1,4 @@
-package ru.matrosov.fridges.repository;
+package ru.matrosov.fridges.repository.business;
 
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
@@ -6,28 +6,28 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import ru.matrosov.fridges.model.EmployeeModel;
+import ru.matrosov.fridges.model.dictionary.WarehouseModel;
 
 import java.util.List;
 
 @AllArgsConstructor
 @Repository
-public class EmployeeRepository {
+public class WarehouseRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
-    private final RowMapper<EmployeeModel> rowMapper;
+    private final RowMapper<WarehouseModel> rowMapper;
 
     @Transactional
-    public List<EmployeeModel> findAll() {
+    public List<WarehouseModel> findAll() {
         return jdbcTemplate.query("""
-                select * from employee
+                select * from warehouse
                 """, rowMapper);
     }
 
     @Transactional
-    public EmployeeModel findById(Integer id) {
+    public WarehouseModel findById(Integer id) {
         var parameters = new MapSqlParameterSource("id", id);
         return jdbcTemplate.queryForObject("""
-                select * from employee e where e.id = :id
+                select * from warehouse w where w.id = :id
                 """, parameters, rowMapper);
     }
 }

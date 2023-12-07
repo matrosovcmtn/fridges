@@ -1,6 +1,6 @@
 package ru.matrosov.fridges.service.business;
 
-import ru.matrosov.fridges.model.EmployeeModel;
+import ru.matrosov.fridges.model.dictionary.EmployeeModel;
 
 import java.util.List;
 
