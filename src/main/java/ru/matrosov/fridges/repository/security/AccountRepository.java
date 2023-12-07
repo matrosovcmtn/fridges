@@ -17,6 +17,7 @@ public class AccountRepository {
     private static final String EMAIL = "email";
     private static final String PASSWORD = "password";
     private static final String ROLE = "role";
+
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private final RowMapper<AccountModel> rowMapper;
 
