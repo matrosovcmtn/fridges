@@ -30,10 +30,10 @@ public class EmployeeController {
 
     /**
      * Method returns employee by id
-     * POST - /employee/getAll
+     * POST - /employee/getById
      *
      * @param id - employee's identifier
-     * @return ResponseEntity<List<EmployeeModel>> - list of employers
+     * @return ResponseEntity<EmployeeModel> - found employee
      */
     @PostMapping("/getById/{id}")
     public ResponseEntity<EmployeeModel> getById(@PathVariable Integer id) {

@@ -3,26 +3,26 @@ package ru.matrosov.fridges.service.business.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.matrosov.fridges.model.dictionary.EmployeeModel;
-import ru.matrosov.fridges.repository.business.EmployeeRepository;
-import ru.matrosov.fridges.service.business.EmployeeService;
+import ru.matrosov.fridges.model.dictionary.WarehouseModel;
+import ru.matrosov.fridges.repository.business.WarehouseRepository;
+import ru.matrosov.fridges.service.business.WarehouseService;
 
 import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class EmployeeServiceImpl implements EmployeeService {
-    private final EmployeeRepository repository;
+public class WarehouseServiceImpl implements WarehouseService {
+    private final WarehouseRepository repository;
 
     @Transactional
     @Override
-    public List<EmployeeModel> findAll() {
+    public List<WarehouseModel> findAll() {
         return repository.findAll();
     }
 
     @Transactional
     @Override
-    public EmployeeModel findById(Integer id) {
+    public WarehouseModel findById(Integer id) {
         return repository.findById(id);
     }
 }
