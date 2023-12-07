@@ -5,16 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder(builderClassName = "Builder")
 @Data
-public class EmployeeModel {
+public class ApplicationCompositionModel {
     private Integer id;
-    private String firstName;
-    private String secondName;
-    private String middleName;
-    private String phoneNumber;
-    private String fullName;
-    private int warehouseId;
-    private int specId;
+    private Integer quantity;
+    private Integer applicationId;
+    private LocalDate creationDate;
 }
