@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors((cors) -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/employee/getAll")
+                        .requestMatchers("/employee/getAll", "/employee/add")
                         .hasRole("ADMIN")
                         .requestMatchers("/registration", "/login")
                         .permitAll()

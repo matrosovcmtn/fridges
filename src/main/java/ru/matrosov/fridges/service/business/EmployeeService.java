@@ -8,4 +8,6 @@ public interface EmployeeService {
     List<EmployeeModel> findAll();
 
     EmployeeModel findById(Integer id);
+
+    int add(EmployeeModel employee);
 }

@@ -20,8 +20,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         return repository.findAll();
     }
 
+    @Transactional
     @Override
     public EmployeeModel findById(Integer id) {
         return repository.findById(id);
+    }
+
+    @Override
+    public int add(EmployeeModel employee) {
+        return repository.save(employee);
     }
 }
