@@ -1,0 +1,47 @@
+package ru.matrosov.fridges.repository.security.impl;
+
+import lombok.AllArgsConstructor;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import ru.matrosov.fridges.model.security.AccountModel;
+import ru.matrosov.fridges.repository.security.AccountRepository;
+
+import java.util.Optional;
+
+@Repository
+@AllArgsConstructor
+public class AccountRepositoryImpl implements AccountRepository {
+    private static final String USERNAME = "username";
+    private static final String EMAIL = "email";
+    private static final String PASSWORD = "password";
+    private static final String ROLE = "role";
+
+    private final NamedParameterJdbcTemplate jdbcTemplate;
+    private final RowMapper<AccountModel> rowMapper;
+
+    @Transactional
+@Override
+    public Optional<AccountModel> findByEmail(String email) {
+        var parameters = new MapSqlParameterSource(EMAIL, email);
+        return Optional.of(jdbcTemplate.queryForObject("""
+                select * from account a where a.email = :email
+                """, parameters, rowMapper));
+    }
+
+    @Transactional
+@Override
+    public int save(AccountModel accountModel) {
+        var parameters = new MapSqlParameterSource()
+                .addValue(USERNAME, accountModel.getUsername())
+                .addValue(EMAIL, accountModel.getEmail())
+                .addValue(PASSWORD, accountModel.getPassword())
+                .addValue(ROLE, accountModel.getRole().name());
+        return jdbcTemplate.update("""
+                INSERT INTO account(username, email, password, role)
+                	VALUES (:username, :email, :password, :role);
+                """, parameters);
+    }
+}
