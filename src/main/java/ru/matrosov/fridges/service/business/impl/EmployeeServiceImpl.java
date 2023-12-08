@@ -26,6 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return repository.findById(id);
     }
 
+    @Transactional
     @Override
     public int add(EmployeeModel employee) {
         return repository.save(employee);
