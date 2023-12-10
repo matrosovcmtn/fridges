@@ -25,4 +25,24 @@ public class ItemServiceImpl implements ItemService {
     public ItemModel findById(Integer id) {
         return repository.findById(id);
     }
+
+    @Override
+    public List<ItemModel> findAllDesc() {
+        return repository.findAllDesc();
+    }
+
+    @Override
+    public List<ItemModel> findAllAsc() {
+        return repository.findAllAsc();
+    }
+
+    @Override
+    public List<ItemModel> getAllFiltered(Integer min, Integer max) {
+        return repository.findAllFiltered(min, max);
+    }
+
+    @Override
+    public List<ItemModel> getAllSearched(String query) {
+        return repository.findAllSearched(query);
+    }
 }

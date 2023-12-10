@@ -8,4 +8,12 @@ public interface ItemService {
     List<ItemModel> findAll();
 
     ItemModel findById(Integer id);
+
+    List<ItemModel> findAllDesc();
+
+    List<ItemModel> findAllAsc();
+
+    List<ItemModel> getAllFiltered(Integer min, Integer max);
+
+    List<ItemModel> getAllSearched(String query);
 }

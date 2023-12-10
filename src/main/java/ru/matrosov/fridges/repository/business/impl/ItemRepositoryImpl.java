@@ -33,4 +33,38 @@ public class ItemRepositoryImpl implements ItemRepository {
                 select * from item i where i.id = :id
                 """, parameters, rowMapper);
     }
+
+    @Transactional
+    @Override
+    public List<ItemModel> findAllAsc() {
+        return jdbcTemplate.query("""
+                select * from item order by quantity asc 
+                """, rowMapper);    }
+
+    @Transactional
+    @Override
+    public List<ItemModel> findAllDesc() {
+        return jdbcTemplate.query("""
+                select * from item order by quantity desc 
+                """, rowMapper);
+    }
+
+    @Override
+    public List<ItemModel> findAllFiltered(Integer min, Integer max) {
+        var parameters = new MapSqlParameterSource();
+        parameters.addValue("min", min);
+        parameters.addValue("max", max);
+        return jdbcTemplate.query("""
+                select * from item i where i.quantity BETWEEN :min AND :max
+                """, parameters, rowMapper);
+    }
+
+    @Override
+    public List<ItemModel> findAllSearched(String query) {
+        var parameters = new MapSqlParameterSource();
+        parameters.addValue("query", query);
+        return jdbcTemplate.query("""
+                select * from item i where i.name like :query
+                """, parameters, rowMapper);
+    }
 }
